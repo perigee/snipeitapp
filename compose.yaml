@@ -1,0 +1,26 @@
+###
+### Docker compose for Snipe IT stack
+###
+
+services:
+  snipe_app:
+    image: snipe/snipe-it:v6.0.14
+    ports:
+      - "3051:80"
+    depends_on:
+      - snipe_mysql
+
+  snipe_mysql:
+    image: mysql:8.0.32
+    volume:
+
+
+volumes:
+  mysql-data:
+    driver:
+    expose:
+      - "3306"
+    driver_opts:
+      size: "8G"
+
+
